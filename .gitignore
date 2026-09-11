@@ -1,0 +1,38 @@
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Build
+dist/
+build/
+
+# Cache
+.cache/
+.pytest_cache/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cloudflare executable
+cloudflared-windows-amd64.exe
+
+# Runtime database
+llm/memory.db
+
+# Chroma vector database
+rag/chroma_db/

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>ScamGuard AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div id="splashScreen">
+    <div class="splash-bg"></div>
+    <div class="splash-overlay"></div>
+    <div class="splash-content">
+      <div class="splash-logo-wrap">
+        <div class="splash-icon">✨</div>
+        <h1 class="splash-title">ScamGuard <span class="splash-grad">AI</span></h1>
+        <p class="splash-sub">ผู้ช่วยตรวจสอบมิจฉาชีพออนไลน์</p>
+      </div>
+      <div class="splash-loader">
+        <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+        <p class="splash-loading-text">กำลังโหลด...</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="landingPage">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="nav-icon">✨</span>
+        <span class="nav-title">ScamGuard AI</span>
+        <span class="nav-sub">ผู้ช่วยตรวจสอบมิจฉาชีพ</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">ฟีเจอร์</a>
+        <a href="#how">วิธีใช้</a>
+        <a href="#about">เกี่ยวกับ</a>
+      </div>
+      <button class="btn-primary" onclick="openChat()">💬 เริ่มใช้งาน</button>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">✨ ยินดีต้อนรับสู่</div>
+        <h1 class="hero-title">ScamGuard <span class="grad">AI</span></h1>
+        <p class="hero-sub">ผู้ช่วยตรวจสอบข้อความน่าสงสัยและมิจฉาชีพออนไลน์</p>
+        <p class="hero-desc">
+          ระบบวิเคราะห์ข้อความด้วย AI และฐานความรู้ด้านภัยออนไลน์ ช่วยให้คุณรู้ทันกลโกงออนไลน์
+          ทั้งการตรวจข้อความต้องสงสัย และการถามข้อมูลเกี่ยวกับมิจฉาชีพในรูปแบบต่างๆ
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary btn-lg" onclick="openChat()">💬 เริ่มใช้งาน Chatbot</button>
+          <a href="#features" class="btn-outline btn-lg">ดูฟีเจอร์</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hcard-row">
+            <div class="hcard-bubble user-b">บัญชีถูกระงับ คลิกด่วน!</div>
+          </div>
+          <div class="hcard-row bot-row">
+            <div class="hcard-avatar">🦉</div>
+            <div class="hcard-bubble bot-b">
+              <span class="badge-danger-sm">⚠️ พบจุดน่าสงสัย</span>
+              <p>ข้อความนี้มีลักษณะหลอกลวง พบคำเร่งด่วนและลิงก์น่าสงสัย ไม่ควรคลิกครับ</p>
+            </div>
+          </div>
+
+          <div class="hcard-row">
+            <div class="hcard-bubble user-b">Scammer คืออะไร?</div>
+          </div>
+          <div class="hcard-row bot-row">
+            <div class="hcard-avatar">🦉</div>
+            <div class="hcard-bubble bot-b">
+              <span class="badge-safe-sm">📘 ความรู้</span>
+              <p>Scammer คือมิจฉาชีพที่ใช้วิธีหลอกลวงเพื่อขโมยเงินหรือข้อมูลส่วนตัวครับ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-inner">
+        <div class="section-label">ฟีเจอร์หลัก</div>
+        <h2 class="section-title">ทำไมต้องใช้ <span class="grad">ScamGuard AI?</span></h2>
+
+        <div class="features-grid">
+          <div class="feat-card">
+            <div class="feat-icon">🤖</div>
+            <h3>ตรวจข้อความต้องสงสัย</h3>
+            <p>วิเคราะห์ข้อความด้วยโมเดล AI และตัวตรวจจับรูปแบบข้อความที่เข้าข่ายมิจฉาชีพ</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">📚</div>
+            <h3>คลังความรู้ด้าน Scam</h3>
+            <p>ค้นข้อมูลจากฐานความรู้เพื่ออธิบายกลโกง วิธีป้องกัน และแนวทางรับมืออย่างเข้าใจง่าย</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🔗</div>
+            <h3>ตรวจสอบลิงก์น่าสงสัย</h3>
+            <p>ช่วยเช็ก URL ที่แนบมากับข้อความ เพื่อเพิ่มความมั่นใจก่อนคลิก</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🧠</div>
+            <h3>ตอบต่อเนื่องด้วย Memory</h3>
+            <p>จดจำบริบทการสนทนาในแชท เพื่อให้ตอบต่อเนื่องได้ดีขึ้นและไม่ต้องเล่าซ้ำ</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🛡️</div>
+            <h3>Safety Guard</h3>
+            <p>ระบบปฏิเสธคำถามที่เข้าข่ายสนับสนุนการหลอกลวงหรือการกระทำผิดกฎหมาย</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">📱</div>
+            <h3>ใช้งานง่าย 2 โหมด</h3>
+            <p>เลือกโหมดภายในหน้าแชท แล้วเข้าสู่หน้าการใช้งานที่เหมาะสมได้ทันที</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="how">
+      <div class="section-inner">
+        <div class="section-label">วิธีการทำงาน</div>
+        <h2 class="section-title">2 โหมดการทำงานของ <span class="grad">ScamGuard AI</span></h2>
+
+        <p class="hero-desc" style="max-width: 760px; margin-bottom: 40px;">
+          ScamGuard AI มี 2 โหมดการใช้งาน เพื่อให้เหมาะกับสิ่งที่ผู้ใช้ต้องการ
+          ทั้งการตรวจสอบข้อความต้องสงสัย และการค้นข้อมูลความรู้เกี่ยวกับมิจฉาชีพ
+        </p>
+
+        <div class="features-grid">
+          <div class="feat-card">
+            <div class="feat-icon">✨</div>
+            <h3>โหมดตรวจสอบข้อความ</h3>
+            <p style="margin-bottom: 14px;">
+              เหมาะสำหรับผู้ใช้ที่ต้องการเช็กข้อความ SMS, LINE, Email หรือ URL ที่น่าสงสัย
+            </p>
+            <p><strong>1.</strong> วางข้อความหรือ URL ที่ต้องการตรวจสอบ</p>
+            <p><strong>2.</strong> ระบบวิเคราะห์ความเสี่ยงจากลิงก์ คำเร่งด่วน การแอบอ้าง และรูปแบบข้อความ</p>
+            <p><strong>3.</strong> สรุปเหตุผลจากสิ่งที่ตรวจพบให้เข้าใจง่าย</p>
+            <p><strong>4.</strong> แสดงระดับความเสี่ยง จุดที่พบ และคำแนะนำในการรับมือ</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon">📖</div>
+            <h3>โหมดคลังความรู้</h3>
+            <p style="margin-bottom: 14px;">
+              เหมาะสำหรับผู้ใช้ที่ต้องการถามข้อมูลเกี่ยวกับมิจฉาชีพ วิธีป้องกัน และแนวทางรับมือ
+            </p>
+            <p><strong>1.</strong> พิมพ์คำถามเกี่ยวกับ scam หรือภัยออนไลน์</p>
+            <p><strong>2.</strong> ระบบค้นข้อมูลที่เกี่ยวข้องจากฐานความรู้</p>
+            <p><strong>3.</strong> เรียบเรียงคำตอบให้กระชับ เข้าใจง่าย และตรงประเด็น</p>
+            <p><strong>4.</strong> ช่วยให้ผู้ใช้เข้าใจกลโกงและป้องกันตัวเองได้ดีขึ้น</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-inner">
+        <h2>พร้อมใช้งานแล้ว</h2>
+        <p>เลือกได้ทั้งโหมดตรวจสอบข้อความ และโหมดคลังความรู้ เริ่มใช้งานได้ทันที</p>
+        <button class="btn-primary btn-lg" onclick="openChat()">💬 เริ่มใช้งาน Chatbot ฟรี</button>
+      </div>
+    </section>
+
+    <footer class="footer" id="about">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="nav-icon">✨</span>
+          <span class="nav-title">ScamGuard AI</span>
+          <p>ผู้ช่วยตรวจสอบมิจฉาชีพออนไลน์</p>
+        </div>
+        <div class="footer-links">
+          <h4>เมนู</h4>
+          <a href="#features">ฟีเจอร์</a>
+          <a href="#how">วิธีใช้</a>
+          <a href="#about">เกี่ยวกับ</a>
+        </div>
+        <div class="footer-links">
+          <h4>เกี่ยวกับ</h4>
+          <p>โปรเจกต์นี้พัฒนาเพื่อการศึกษา</p>
+          <p>SPU — Data Science</p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 ScamGuard AI. สงวนสิทธิ์ทุกประการ</div>
+    </footer>
+  </div>
+
+  <div id="chatPage" class="hidden">
+    <div class="app-shell">
+      <div class="phone-frame mode-select-frame">
+        <header class="topbar">
+          <button class="icon-btn" id="backBtn" title="กลับหน้าหลัก" onclick="closeChatBack()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+
+          <div class="brand">
+            <div class="brand-icon">✨</div>
+            <div class="brand-text">
+              <h1>ScamGuard AI</h1>
+              <p id="currentModeLabel">เลือกโหมดการใช้งาน</p>
+            </div>
+          </div>
+
+          <button class="icon-btn toggle-menu" id="modeToggleBtn" title="เลือกโหมด">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="1"></circle>
+              <circle cx="12" cy="5" r="1"></circle>
+              <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+          </button>
+        </header>
+
+        <section class="mode-panel expanded" id="modePanel">
+          <div class="mode-switch" id="modeSwitch">
+            <button class="mode-chip active" data-mode="detect">✨ ตรวจสอบข้อความ</button>
+            <button class="mode-chip" data-mode="knowledge">📖 คลังความรู้</button>
+          </div>
+        </section>
+
+        <main class="chat-area mode-select-area">
+          <div class="message bot welcome-card">
+            <div class="avatar-bot">
+              <img src="{{ url_for('static', filename='i-want-a-owl-reaing-a-book-with-glases.png') }}" width="20" height="20" style="object-fit:contain" alt="bot avatar">
+            </div>
+            <div class="bubble bubble-bot">
+              <p>สวัสดีครับ ผม ScamGuard AI กรุณาเลือกโหมดที่คุณต้องการใช้งานครับ</p>
+            </div>
+          </div>
+
+          <div class="mode-entry-grid">
+            <button class="mode-entry-card" onclick="openDetectPage()">
+              <div class="mode-entry-icon">✨</div>
+              <div class="mode-entry-title">โหมดตรวจสอบข้อความ</div>
+              <div class="mode-entry-desc">วางข้อความ SMS, LINE, Email หรือ URL ที่น่าสงสัย เพื่อให้ระบบวิเคราะห์ความเสี่ยง</div>
+            </button>
+
+            <button class="mode-entry-card" onclick="openKnowledgePage()">
+              <div class="mode-entry-icon">📖</div>
+              <div class="mode-entry-title">โหมดคลังความรู้</div>
+              <div class="mode-entry-desc">สอบถามความรู้เกี่ยวกับมิจฉาชีพ วิธีป้องกัน และแนวทางรับมือ</div>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div id="detectPage" class="hidden sub-chat-page">
+    <div class="app-shell">
+      <div class="sg-sidebar-overlay" id="detectSidebarOverlay" onclick="toggleChatSidebar('detect')"></div>
+
+      <aside class="sg-sidebar" id="detectSidebar">
+        <div class="sg-sidebar-header">
+          <div class="sg-sidebar-logo">🛡️</div>
+          <div class="sg-sidebar-brand">
+            <span class="sg-sidebar-name">ScamGuard AI</span>
+            <span class="sg-sidebar-sub">โหมดตรวจสอบข้อความ</span>
+          </div>
+        </div>
+
+        <button class="sg-new-chat-btn" onclick="createDetectChat()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          แชทใหม่
+        </button>
+
+        <div class="sg-list-label">บทสนทนา</div>
+        <div class="sg-chat-list" id="detectChatList"></div>
+
+        <div class="sg-sidebar-footer">
+          <button class="sg-footer-btn" onclick="switchFromDetectToKnowledge()">📖 ไปโหมดความรู้</button>
+          <button class="sg-footer-btn sg-footer-danger" onclick="closeDetectToLanding()">↩ หน้าแรก</button>
+        </div>
+      </aside>
+
+      <div class="phone-frame sg-with-sidebar">
+        <header class="topbar topbar-chat">
+          <div class="topbar-side topbar-side-left">
+            <button class="icon-btn" title="เมนูแชท" onclick="toggleChatSidebar('detect')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="brand brand-chat">
+            <div class="brand-icon">✨</div>
+            <div class="brand-text">
+              <h1>ScamGuard AI</h1>
+              <p id="detectTopbarSub">โหมดตรวจสอบข้อความ</p>
+            </div>
+          </div>
+
+          <div class="topbar-side topbar-side-right">
+            <div class="topbar-menu-wrap">
+              <button class="icon-btn" id="detectMenuBtn" title="ตัวเลือกเพิ่มเติม">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="12" cy="5" r="1"></circle>
+                  <circle cx="12" cy="19" r="1"></circle>
+                </svg>
+              </button>
+
+              <div class="topbar-dropdown hidden" id="detectDropdown">
+                <button class="dropdown-item active" onclick="switchFromDetectToDetect()">✨ โหมดตรวจข้อความ</button>
+                <button class="dropdown-item" onclick="switchFromDetectToKnowledge()">📖 โหมดคลังความรู้</button>
+                <button class="dropdown-item dropdown-danger" onclick="closeDetectToLanding()">↩ กลับหน้าแรก</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="chat-area" id="detectChatArea"></main>
+
+        <div class="composer-wrap">
+          <div class="loading hidden" id="detectLoading">
+            <div class="dot-typing"></div> กำลังประมวลผล...
+          </div>
+
+          <div class="composer-card">
+            <!-- Image preview — โชว์เมื่อผู้ใช้แนบรูป -->
+            <div id="detectImagePreview" class="detect-image-preview hidden">
+              <div class="detect-image-preview-thumb">
+                <img id="detectImagePreviewImg" alt="รูปที่แนบ" />
+              </div>
+              <div class="detect-image-preview-info">
+                <div class="detect-image-preview-name" id="detectImagePreviewName">-</div>
+                <div class="detect-image-preview-status" id="detectImagePreviewStatus">
+                  <span class="detect-ocr-spinner"></span>
+                  <span>กำลังอ่านข้อความจากรูป...</span>
+                </div>
+              </div>
+              <button type="button" id="detectImagePreviewRemove" class="detect-image-preview-remove" title="ลบรูป">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="composer" id="detectComposer">
+              <!-- ปุ่มแนบรูป — hidden file input + visible trigger -->
+              <input type="file" id="detectImageInput" accept="image/png,image/jpeg,image/webp,image/bmp" hidden />
+              <button type="button" id="detectAttachBtn" class="attach-btn" title="แนบรูปภาพ (OCR)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                </svg>
+              </button>
+
+              <textarea id="detectMessageInput" rows="1" placeholder="วางข้อความหรือลิงก์ที่ต้องการตรวจสอบ..."></textarea>
+              <button id="detectSendBtn" class="send-btn" title="ส่งข้อความ">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+              </button>
+            </div>
+
+            <div id="detectStatusStrip" class="detect-status-strip hidden">
+              <span class="dot"></span>
+              <span>วิเคราะห์ข้อความนี้เสร็จสิ้น · เริ่มตรวจข้อความใหม่ได้ด้านล่าง</span>
+            </div>
+
+            <button id="detectResetBtn" class="detect-reset-btn hidden" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 3-6.7"/>
+                <path d="M3 4v5h5"/>
+              </svg>
+              ตรวจข้อความใหม่
+            </button>
+
+            <div class="composer-meta">Enter เพื่อส่ง · Shift + Enter ขึ้นบรรทัดใหม่</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="knowledgePage" class="hidden sub-chat-page">
+    <div class="app-shell">
+      <div class="sg-sidebar-overlay" id="knowledgeSidebarOverlay" onclick="toggleChatSidebar('knowledge')"></div>
+
+      <aside class="sg-sidebar" id="knowledgeSidebar">
+        <div class="sg-sidebar-header">
+          <div class="sg-sidebar-logo">📖</div>
+          <div class="sg-sidebar-brand">
+            <span class="sg-sidebar-name">ScamGuard AI</span>
+            <span class="sg-sidebar-sub">โหมดคลังความรู้</span>
+          </div>
+        </div>
+
+        <button class="sg-new-chat-btn" onclick="createKnowledgeChat()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          แชทใหม่
+        </button>
+
+        <div class="sg-list-label">บทสนทนา</div>
+        <div class="sg-chat-list" id="knowledgeChatList"></div>
+
+        <div class="sg-sidebar-footer">
+          <button class="sg-footer-btn" onclick="switchFromKnowledgeToDetect()">✨ ไปโหมดตรวจสอบ</button>
+          <button class="sg-footer-btn sg-footer-danger" onclick="closeKnowledgeToLanding()">↩ หน้าแรก</button>
+        </div>
+      </aside>
+
+      <div class="phone-frame sg-with-sidebar">
+        <header class="topbar topbar-chat">
+          <div class="topbar-side topbar-side-left">
+            <button class="icon-btn" title="เมนูแชท" onclick="toggleChatSidebar('knowledge')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="brand brand-chat">
+            <div class="brand-icon">📖</div>
+            <div class="brand-text">
+              <h1>ScamGuard AI</h1>
+              <p>โหมดคลังความรู้</p>
+            </div>
+          </div>
+
+          <div class="topbar-side topbar-side-right">
+            <div class="topbar-menu-wrap">
+              <button class="icon-btn" id="knowledgeMenuBtn" title="ตัวเลือกเพิ่มเติม">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="12" cy="5" r="1"></circle>
+                  <circle cx="12" cy="19" r="1"></circle>
+                </svg>
+              </button>
+
+              <div class="topbar-dropdown hidden" id="knowledgeDropdown">
+                <button class="dropdown-item" onclick="switchFromKnowledgeToDetect()">✨ โหมดตรวจข้อความ</button>
+                <button class="dropdown-item active" onclick="switchFromKnowledgeToKnowledge()">📖 โหมดคลังความรู้</button>
+                <button class="dropdown-item dropdown-danger" onclick="closeKnowledgeToLanding()">↩ กลับหน้าแรก</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="chat-area" id="knowledgeChatArea"></main>
+
+        <div class="composer-wrap">
+          <div class="loading hidden" id="knowledgeLoading">
+            <div class="dot-typing"></div> กำลังประมวลผล...
+          </div>
+
+          <div class="composer-card">
+            <div class="composer">
+              <textarea id="knowledgeMessageInput" rows="1" placeholder="ถามคำถามเกี่ยวกับมิจฉาชีพหรือวิธีป้องกัน..."></textarea>
+              <button id="knowledgeSendBtn" class="send-btn" title="ส่งข้อความ">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+              </button>
+            </div>
+            <div class="composer-meta">ถามได้ทั้งความหมาย รูปแบบกลโกง และแนวทางรับมือ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
